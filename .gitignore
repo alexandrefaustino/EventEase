@@ -1,0 +1,88 @@
+## === .NET / Blazor / C# ===
+
+# Build results
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# IIS Express
+.vs/
+.vscode/
+*.vspscc
+*.vssscc
+
+# LocalDB database files
+*.mdf
+*.ldf
+
+# Logs
+*.log
+
+# Backup & cache files
+*.bak
+*.swp
+*.tmp
+
+# Rider project files
+.idea/
+
+# JetBrains Rider
+*.DotSettings.user
+
+# ReSharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings
+
+# Coverlet coverage results
+coverage*.json
+coverage*.xml
+coverage*.info
+
+# NCrunch
+.ncrunch*
+*.ncrunchproject
+
+# Visual Studio Code workspace files
+*.code-workspace
+
+# Auto-generated config files
+launchSettings.json
+
+# Blazor WebAssembly specific (if any PWA or static site generation is used)
+wwwroot/service-worker.published.js
+wwwroot/service-worker-assets.js
+
+# Optional: if you use SQLite or LiteDB
+*.db
+
+# Optional: if using secrets manager
+secrets.json
+
+# Dependency cache
+packages/
+project.lock.json
+project.fragment.lock.json
+
+# NuGet
+*.nupkg
+*.snupkg
+.nuget/
+*.nuspec
+
+# Web build artifacts
+dist/
+build/
+node_modules/
+
+# Don't track environment-specific config
+appsettings.Development.json
+appsettings.Local.json

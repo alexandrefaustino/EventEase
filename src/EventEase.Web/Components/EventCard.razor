@@ -1,0 +1,18 @@
+﻿@using EventEase.Web.Models
+
+<div class="card shadow-sm h-100">
+    <div class="card-body">
+        <h5 class="card-title">@Event.Title</h5>
+        <h6 class="card-subtitle mb-2 text-muted">@Event.Date.ToShortDateString() - @Event.Location</h6>
+        <p class="card-text">@Event.Description</p>
+
+        <button class="btn btn-outline-danger btn-sm" @onclick="() => OnDelete.InvokeAsync(Event.Id)">
+            🗑️ Excluir
+        </button>
+    </div>
+</div>
+
+@code {
+    [Parameter, EditorRequired] public required EventModel Event { get; set; }
+    [Parameter] public EventCallback<Guid> OnDelete { get; set; }
+}

@@ -1,0 +1,47 @@
+﻿@page "/new-event"
+@inject EventEase.Web.Services.EventService EventService
+@using EventEase.Web.Models
+
+<h3 class="mb-4">📅 Criar Novo Evento</h3>
+
+<EditForm Model="newEvent" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary class="text-danger mb-3" />
+
+    <div class="mb-3">
+        <label for="title" class="form-label">Título</label>
+        <InputText id="title" @bind-Value="newEvent.Title" class="form-control" />
+        <ValidationMessage For="@(() => newEvent.Title)" class="text-danger" />
+    </div>
+
+    <div class="mb-3">
+        <label for="date" class="form-label">Data</label>
+        <InputDate id="date" @bind-Value="newEvent.Date" class="form-control" />
+        <ValidationMessage For="@(() => newEvent.Date)" class="text-danger" />
+    </div>
+
+    <div class="mb-3">
+        <label for="location" class="form-label">Local</label>
+        <InputText id="location" @bind-Value="newEvent.Location" class="form-control" />
+        <ValidationMessage For="@(() => newEvent.Location)" class="text-danger" />
+    </div>
+
+    <div class="mb-3">
+        <label for="description" class="form-label">Descrição</label>
+        <InputTextArea id="description" @bind-Value="newEvent.Description" class="form-control" rows="4" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        💾 Salvar Evento
+    </button>
+</EditForm>
+
+@code {
+    private EventModel newEvent = new();
+
+    private void HandleValidSubmit()
+    {
+        EventService.Add(newEvent);
+        newEvent = new();
+    }
+}

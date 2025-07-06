@@ -1,0 +1,31 @@
+﻿@page "/events"
+@inject EventEase.Web.Services.EventService EventService
+@using EventEase.Web.Models
+@using EventEase.Web.Components
+
+<h3 class="mb-4">📋 Lista de Eventos</h3>
+
+@if (EventService.GetAll().Count == 0)
+{
+    <div class="alert alert-info">
+        Nenhum evento cadastrado. <a href="/new-event" class="alert-link">Criar um novo</a>.
+    </div>
+}
+else
+{
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        @foreach (var ev in EventService.GetAll())
+        {
+            <div class="col">
+                <EventCard Event="ev" OnDelete="DeleteEvent" />
+            </div>
+        }
+    </div>
+}
+
+@code {
+    private void DeleteEvent(Guid id)
+    {
+        EventService.Delete(id);
+    }
+}

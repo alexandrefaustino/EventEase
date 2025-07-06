@@ -1,0 +1,2 @@
+# EventEase
+Projeto Blazor EventEase
